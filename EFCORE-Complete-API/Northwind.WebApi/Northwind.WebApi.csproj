@@ -15,7 +15,10 @@
     <Using Include="System.Console" Static="true" />
   </ItemGroup>
 
-  <ProjectReference Include=
-"../Northwind.DataContext.Sqlite/Northwind.DataContext.Sqlite.csproj" />
+  <ItemGroup>
+    <ProjectReference Include=
+    "../Northwind.DataContext.Sqlite/Northwind.DataContext.Sqlite.csproj" />
+  </ItemGroup>
+    
 
 </Project>
