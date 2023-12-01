@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.WebApi", "Northwi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithEFCore", "WorkingWithEFCore\WorkingWithEFCore.csproj", "{97F9B807-7CF9-4942-9FE3-1E578EC2B497}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Mvc", "Northwind.Mvc\Northwind.Mvc.csproj", "{52D15798-A32A-4269-A08F-DA8B0255158F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{97F9B807-7CF9-4942-9FE3-1E578EC2B497}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97F9B807-7CF9-4942-9FE3-1E578EC2B497}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97F9B807-7CF9-4942-9FE3-1E578EC2B497}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52D15798-A32A-4269-A08F-DA8B0255158F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52D15798-A32A-4269-A08F-DA8B0255158F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52D15798-A32A-4269-A08F-DA8B0255158F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52D15798-A32A-4269-A08F-DA8B0255158F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
