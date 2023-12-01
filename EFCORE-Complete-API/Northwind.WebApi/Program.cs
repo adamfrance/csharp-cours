@@ -1,6 +1,7 @@
 using Northwind.EntityModels;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Caching.Memory;
+using Northwind.WebApi.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<IMemoryCache>(new MemoryCache(new MemoryCacheOptions()));
@@ -8,6 +9,7 @@ builder.Services.AddSingleton<IMemoryCache>(new MemoryCache(new MemoryCacheOptio
 
 // Add services to the container.
 builder.Services.AddNorthwindContext();
+
 builder.Services.AddControllers(options =>
 {
     WriteLine("Default output formatters:");
@@ -33,6 +35,8 @@ builder.Services.AddControllers(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
 var app = builder.Build();
 
