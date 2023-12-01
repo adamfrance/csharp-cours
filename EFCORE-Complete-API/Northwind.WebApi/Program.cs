@@ -1,8 +1,35 @@
+using Northwind.EntityModels;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.Extensions.Caching.Memory;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSingleton<IMemoryCache>(new MemoryCache(new MemoryCacheOptions()));
+
 
 // Add services to the container.
+builder.Services.AddNorthwindContext();
+builder.Services.AddControllers(options =>
+{
+    WriteLine("Default output formatters:");
+    foreach (IOutputFormatter formatter in options.OutputFormatters)
+    {
+        OutputFormatter? mediaFormatter = formatter as OutputFormatter;
+        if (mediaFormatter is null)
+        {
+            WriteLine($"  {formatter.GetType().Name}");
+        }
+        else // OutputFormatter class has SupportedMediaTypes.
+        {
+            WriteLine("  {0}, Media types: {1}",
+              arg0: mediaFormatter.GetType().Name,
+              arg1: string.Join(", ",
+                mediaFormatter.SupportedMediaTypes));
+        }
+    }
+})
+.AddXmlDataContractSerializerFormatters()
+.AddXmlSerializerFormatters();
 
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
